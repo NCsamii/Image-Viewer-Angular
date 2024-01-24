@@ -3,40 +3,42 @@
     <div class="slider" [style.transform]="'translateX(' + (-currentIndex * 100) + '%)'" #imageContainer>
       <div *ngFor="let image of imageList; let i = index" class="slide">
 
-        <img [src]="image" [class.active]="i === currentIndex"  class="slider-image" (mouseup)="panning =false"
+        <img [src]="image" [class.active]="i === currentIndex" (wheel)="zoom($event)"
+             (mousedown)="mouseDown($event)"
+             (mousemove)="mouseMove($event)" class="slider-image" (mouseup)="panning =false"
         >
       </div>
     </div>
     <!--        ACTIONS-->
     <div class="nav_action">
-      <a class="slider_btn slider-next" [class.disabled]="currentIndex  === imageList.length -1">
+      <a class="slider_btn slider-next" [class.disabled]="currentIndex  === imageList.length -1" (click)="next()">
       </a>
-      <a class="slider_btn slider-zoomOut">
+      <a class="slider_btn slider-zoomOut" (click)="zoomOut()">
       </a>
-      <a class="slider_btn slider-zoomIn">
-      </a>
-
-      <a class="slider_btn slider-rotateLTR">
+      <a class="slider_btn slider-zoomIn" (click)="zoomIn()">
       </a>
 
-      <a class="slider_btn slider-rotateRTL">
+      <a class="slider_btn slider-rotateLTR" (click)="rotateLTR()">
       </a>
 
-      <a class="slider_btn slider-rotate90LRT">
+      <a class="slider_btn slider-rotateRTL" (click)="rotateRTL()">
       </a>
 
-      <a class="slider_btn slider-rotate90RTL">
+      <a class="slider_btn slider-rotate90LRT" (click)="rotate90LTR()">
       </a>
-      <a class="slider_btn slider-prev" [class.disabled]="currentIndex == 0">
+
+      <a class="slider_btn slider-rotate90RTL" (click)="rotate90RTL()">
+      </a>
+      <a class="slider_btn slider-prev" [class.disabled]="currentIndex == 0" (click)="prev()">
       </a>
     </div>
     <!--        FULL SCREEN-->
-    <a class="slider_btn slider-full"><i class="fa fa-expand"></i></a>
+    <a class="slider_btn slider-full" (click)="full()"><i class="fa fa-expand"></i></a>
   </div>
 
 
   <div class="thumbnail-slider mt-2 gap-3 d-flex">
-    <div *ngFor="let image of imageList; let i = index">
+    <div *ngFor="let image of imageList; let i = index" (click)="setCurrentIndex(i)">
       <img [src]="image" [class.active]="i === currentIndex">
     </div>
   </div>
