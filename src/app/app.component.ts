@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'imageViewer';
-  images:string[]=['https://freeimage.host/i/Jap65G4' , 'https://freeimage.host/i/Jap6Gwu', 'https://freeimage.host/i/Jap6O8P']
+  images:string[]=['assets/img/image-1.jpg' , 'assets/img/image-2.jpg', 'assets/img/image-3.jpg' , 'assets/img/image-4.jpg']
 }

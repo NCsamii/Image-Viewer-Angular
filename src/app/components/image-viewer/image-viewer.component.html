@@ -1,8 +1,7 @@
-<div *ngIf="imageList.length !== 0">
+<div *ngIf="imageList.length !== 0" class="container">
   <div class="slider-container">
     <div class="slider" [style.transform]="'translateX(' + (-currentIndex * 100) + '%)'" #imageContainer>
       <div *ngFor="let image of imageList; let i = index" class="slide">
-
         <img [src]="image" [class.active]="i === currentIndex" (wheel)="zoom($event)"
              (mousedown)="mouseDown($event)"
              (mousemove)="mouseMove($event)" class="slider-image" (mouseup)="panning =false"
