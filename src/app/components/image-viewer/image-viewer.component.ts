@@ -67,7 +67,7 @@ export class ImageViewerComponent implements OnInit {
     const xs = (event.clientX - this.pointX) / this.scale;
     const ys = (event.clientY - this.pointY) / this.scale;
     const delta = (event.wheelDelta ? event.wheelDelta : -event.deltaY);
-    (delta > 0) ? (this.scale += 0.2) : (this.scale -= 0.2);
+    (delta > 0) ? (this.scale *= 1.2) : (this.scale /= 1.2);
 
     this.setTransform();
   }
