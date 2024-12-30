@@ -1,9 +1,10 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 
 @Component({
-  selector: 'app-image-viewer',
-  templateUrl: './image-viewer.component.html',
-  styleUrls: ['./image-viewer.component.scss']
+    selector: 'app-image-viewer',
+    templateUrl: './image-viewer.component.html',
+    styleUrls: ['./image-viewer.component.scss'],
+    standalone: false
 })
 export class ImageViewerComponent implements OnInit {
   @ViewChild('imageContainer') imageContainer !: ElementRef;
